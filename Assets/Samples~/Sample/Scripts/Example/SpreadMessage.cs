@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  SpreadEvent.cs
+ *  File         :  SpreadMessage.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -13,28 +13,28 @@
 using System.Collections;
 using UnityEngine;
 
-namespace MGS.EventHub.Sample
+namespace MGS.MessageBus.Sample
 {
-    public class SpreadEvent : MonoBehaviour
+    public class SpreadMessage : MonoBehaviour
     {
         private void Start()
         {
-            StartCoroutine(SpreadEvents());
+            StartCoroutine(SpreadMessages());
         }
 
-        IEnumerator SpreadEvents()
+        IEnumerator SpreadMessages()
         {
             yield return new WaitForSeconds(1.0f);
-            var colorArg = new ColorEventArg { color = Color.cyan };
-            Global.EventHub.Spread(colorArg);
+            var colorMsg = new ColorMessage { color = Color.cyan };
+            Global.MessageBus.Spread(colorMsg);
 
             yield return new WaitForSeconds(1.0f);
-            var posArg = new PosEventArg { position = Vector3.up };
-            Global.EventHub.Spread(posArg);
+            var posMsg = new PosMessage { position = Vector3.up };
+            Global.MessageBus.Spread(posMsg);
 
             yield return new WaitForSeconds(1.0f);
-            var scaleArg = new ScaleEventArg { scale = Vector3.one * 0.5f };
-            Global.EventHub.Spread(scaleArg);
+            var scaleMsg = new ScaleMessage { scale = Vector3.one * 0.5f };
+            Global.MessageBus.Spread(scaleMsg);
         }
     }
 }

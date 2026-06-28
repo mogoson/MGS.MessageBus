@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 1456234582}
   - component: {fileID: 1456234581}
   m_Layer: 0
-  m_Name: SpreadEvent
+  m_Name: SpreadMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -794,7 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1714272245}
   m_Layer: 0
-  m_Name: SubscribeEvent
+  m_Name: SubscribeMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

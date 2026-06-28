@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  IEventHub.cs
+ *  File         :  SubscribeScale.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -10,18 +10,25 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-using System;
+using UnityEngine;
 
-namespace MGS.EventHub
+namespace MGS.MessageBus.Sample
 {
-    public interface IEventHub
+    public class SubscribeScale : MonoBehaviour
     {
-        void Subscribe<T>(Action<T> action);
+        private void Awake()
+        {
+            Global.MessageBus.Subscribe<ScaleMessage>(OnScaleMessage);
+        }
 
-        void Unsubscribe<T>(Action<T> action);
+        private void OnDestroy()
+        {
+            Global.MessageBus.Unsubscribe<ScaleMessage>(OnScaleMessage);
+        }
 
-        void Spread<T>(T arg);
-
-        void Clear();
+        void OnScaleMessage(ScaleMessage message)
+        {
+            transform.localScale = message.scale;
+        }
     }
 }

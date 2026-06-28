@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  EventHub.cs
+ *  File         :  MessageBus.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -13,9 +13,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace MGS.EventHub
+namespace MGS.MessageBus
 {
-    public class EventHub : IEventHub
+    public class MessageBus : IMessageBus
     {
         protected IDictionary<int, Delegate> registry = new Dictionary<int, Delegate>();
 

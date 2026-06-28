@@ -12,23 +12,23 @@
 
 using UnityEngine;
 
-namespace MGS.EventHub.Sample
+namespace MGS.MessageBus.Sample
 {
     public class SubscribePos : MonoBehaviour
     {
         private void Awake()
         {
-            Global.EventHub.Subscribe<PosEventArg>(OnPosEvent);
+            Global.MessageBus.Subscribe<PosMessage>(OnPosMessage);
         }
 
         private void OnDestroy()
         {
-            Global.EventHub.Unsubscribe<PosEventArg>(OnPosEvent);
+            Global.MessageBus.Unsubscribe<PosMessage>(OnPosMessage);
         }
 
-        void OnPosEvent(PosEventArg arg)
+        void OnPosMessage(PosMessage message)
         {
-            transform.position = arg.position;
+            transform.position = message.position;
         }
     }
 }

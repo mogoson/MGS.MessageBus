@@ -1,8 +1,8 @@
 {
-    "name": "MGS.EventHub.Sample",
-    "rootNamespace": "",
+    "name": "MGS.MessageBus.Sample",
+    "rootNamespace": "MGS.MessageBus.Sample",
     "references": [
-        "MGS.EventHub"
+        "MGS.MessageBus"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

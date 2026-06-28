@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  SubscribeScale.cs
+ *  File         :  Message.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -12,23 +12,20 @@
 
 using UnityEngine;
 
-namespace MGS.EventHub.Sample
+namespace MGS.MessageBus.Sample
 {
-    public class SubscribeScale : MonoBehaviour
+    public struct ColorMessage
     {
-        private void Awake()
-        {
-            Global.EventHub.Subscribe<ScaleEventArg>(OnScaleEvent);
-        }
+        public Color color;
+    }
 
-        private void OnDestroy()
-        {
-            Global.EventHub.Unsubscribe<ScaleEventArg>(OnScaleEvent);
-        }
+    public struct PosMessage
+    {
+        public Vector3 position;
+    }
 
-        void OnScaleEvent(ScaleEventArg arg)
-        {
-            transform.localScale = arg.scale;
-        }
+    public struct ScaleMessage
+    {
+        public Vector3 scale;
     }
 }

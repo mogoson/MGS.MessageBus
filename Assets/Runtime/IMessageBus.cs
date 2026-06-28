@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  EventArg.cs
+ *  File         :  IMessageBus.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -10,22 +10,18 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-using UnityEngine;
+using System;
 
-namespace MGS.EventHub.Sample
+namespace MGS.MessageBus
 {
-    public struct ColorEventArg
+    public interface IMessageBus
     {
-        public Color color;
-    }
+        void Subscribe<T>(Action<T> action);
 
-    public struct PosEventArg
-    {
-        public Vector3 position;
-    }
+        void Unsubscribe<T>(Action<T> action);
 
-    public struct ScaleEventArg
-    {
-        public Vector3 scale;
+        void Spread<T>(T arg);
+
+        void Clear();
     }
 }

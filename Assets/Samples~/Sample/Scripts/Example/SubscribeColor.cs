@@ -12,7 +12,7 @@
 
 using UnityEngine;
 
-namespace MGS.EventHub.Sample
+namespace MGS.MessageBus.Sample
 {
     public class SubscribeColor : MonoBehaviour
     {
@@ -21,17 +21,17 @@ namespace MGS.EventHub.Sample
         private void Awake()
         {
             render = GetComponent<Renderer>();
-            Global.EventHub.Subscribe<ColorEventArg>(OnColorEvent);
+            Global.MessageBus.Subscribe<ColorMessage>(OnColorMessage);
         }
 
         private void OnDestroy()
         {
-            Global.EventHub.Unsubscribe<ColorEventArg>(OnColorEvent);
+            Global.MessageBus.Unsubscribe<ColorMessage>(OnColorMessage);
         }
 
-        void OnColorEvent(ColorEventArg arg)
+        void OnColorMessage(ColorMessage message)
         {
-            render.material.color = arg.color;
+            render.material.color = message.color;
         }
     }
 }

@@ -10,15 +10,15 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-namespace MGS.EventHub.Sample
+namespace MGS.MessageBus.Sample
 {
     public sealed class Global
     {
-        public static IEventHub EventHub { get; }
+        public static IMessageBus MessageBus { get; }
 
         static Global()
         {
-            EventHub = new EventHub();
+            MessageBus = new MessageBus();
         }
     }
 }

@@ -1,11 +1,11 @@
 {
-    "name": "com.mgs.eventhub",
+    "name": "com.mgs.messagebus",
     "version": "1.0.0",
-    "displayName": "Event Hub",
-    "description": "Hub for Event subscribe and unsubscribe and spread",
+    "displayName": "Message Bus",
+    "description": "Bus for message subscribe and unsubscribe and spread.",
     "unity": "2021.3",
     "keywords": [
-        "event",
+        "message",
         "subscribe",
         "unsubscribe",
         "spread"
@@ -18,7 +18,7 @@
     "samples": [
         {
             "displayName": "Sample",
-            "description": "Sample for Event subscribe and unsubscribe and spread",
+            "description": "Sample for message subscribe and unsubscribe and spread.",
             "path": "Samples~/Sample"
         }
     ]
