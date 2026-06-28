@@ -22,6 +22,8 @@ namespace MGS.MessageBus
 
         void Spread<T>(T arg);
 
+        void Clear<T>();
+
         void Clear();
     }
 }

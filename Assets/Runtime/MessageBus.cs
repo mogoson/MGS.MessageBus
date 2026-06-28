@@ -58,6 +58,11 @@ namespace MGS.MessageBus
             }
         }
 
+        public void Clear<T>()
+        {
+            registry.Remove(typeof(T));
+        }
+
         public void Clear()
         {
             registry.Clear();
