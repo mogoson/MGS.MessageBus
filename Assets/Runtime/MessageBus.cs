@@ -17,11 +17,11 @@ namespace MGS.MessageBus
 {
     public class MessageBus : IMessageBus
     {
-        protected IDictionary<int, Delegate> registry = new Dictionary<int, Delegate>();
+        protected IDictionary<Type, Delegate> registry = new Dictionary<Type, Delegate>();
 
         public void Subscribe<T>(Action<T> action)
         {
-            var key = typeof(T).GetHashCode();
+            var key = typeof(T);
             if (registry.ContainsKey(key))
             {
                 registry[key] = Delegate.Combine(registry[key], action);
@@ -34,7 +34,7 @@ namespace MGS.MessageBus
 
         public void Unsubscribe<T>(Action<T> action)
         {
-            var key = typeof(T).GetHashCode();
+            var key = typeof(T);
             if (registry.ContainsKey(key))
             {
                 var actions = Delegate.Remove(registry[key], action);
@@ -49,12 +49,12 @@ namespace MGS.MessageBus
             }
         }
 
-        public void Spread<T>(T arg)
+        public void Spread<T>(T message)
         {
-            var key = typeof(T).GetHashCode();
+            var key = typeof(T);
             if (registry.ContainsKey(key))
             {
-                registry[key].DynamicInvoke(arg);
+                registry[key].DynamicInvoke(message);
             }
         }
 
